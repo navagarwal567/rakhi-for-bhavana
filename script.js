@@ -111,48 +111,37 @@ letterBtn.addEventListener("click",()=>{
     }
 
 })
-const galleryBtn = document.getElementById("galleryBtn");
-const gallerySection = document.getElementById("gallerySection");
-const finalSection = document.getElementById("finalSection");
-const photos = document.querySelectorAll(".gallery-photo");
+/* ===========================
+   LETTER → PROMISE
+=========================== */
 
-let current = 0;
-let slideInterval = null;
+const promiseSection = document.getElementById("promiseSection");
+const promiseNext = document.getElementById("promiseNext");
 
-galleryBtn.addEventListener("click", () => {
+promiseNext.addEventListener("click", () => {
 
-    // Letter hide
     letterSection.classList.remove("show");
 
-  
+    promiseSection.classList.add("show");
 
-    // Old interval stop
-    if (slideInterval) {
-        clearInterval(slideInterval);
-    }
+});
 
-    // Start slideshow
-    slideInterval = setInterval(() => {
+/* ===========================
+   PROMISE → FINAL
+=========================== */
 
-        photos[current].classList.remove("active");
+const promiseBtn = document.getElementById("promiseBtn");
+const finalSection = document.getElementById("finalSection");
 
-        current++;
+promiseBtn.addEventListener("click", () => {
 
-        // Gallery finished
-        if (current >= photos.length) {
+    promiseSection.classList.remove("show");
 
-            clearInterval(slideInterval);
+    finalSection.classList.add("show");
 
-            gallerySection.classList.remove("show");
+    startConfetti();
 
-            finalSection.classList.add("show");
-
-            return;
-        }
-
-        photos[current].classList.add("active");
-
-    }, 3500);
+});
 
 });const fireflies=document.getElementById("fireflies");
 
