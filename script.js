@@ -112,37 +112,21 @@ letterBtn.addEventListener("click",()=>{
 
 })
 /* ===========================
-   LETTER → PROMISE
+   LETTER → FINAL
 =========================== */
 
-const promiseSection = document.getElementById("promiseSection");
-const promiseNext = document.getElementById("promiseNext");
-
-promiseNext.addEventListener("click", () => {
-
-    letterSection.classList.remove("show");
-
-    promiseSection.classList.add("show");
-
-});
-
-/* ===========================
-   PROMISE → FINAL
-=========================== */
-
-const promiseBtn = document.getElementById("promiseBtn");
+const finalBtn = document.getElementById("finalBtn");
 const finalSection = document.getElementById("finalSection");
 
-promiseBtn.addEventListener("click", () => {
+finalBtn.addEventListener("click", () => {
 
-    promiseSection.classList.remove("show");
+    letterSection.classList.remove("show");
 
     finalSection.classList.add("show");
 
     startConfetti();
 
 });
-
 });const fireflies=document.getElementById("fireflies");
 
 for(let i=0;i<35;i++){
