@@ -833,7 +833,39 @@ transform:translateY(0);
         #442c5e,
         #6a3f7d
     );
+/* ===========================
+   PROMISE PAGE
+=========================== */
 
+#promiseSection{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    background:linear-gradient(
+    135deg,
+    #fff8f6,
+    #ffe7ef,
+    #ffe0e8);
+
+    z-index:10000;
+
+}
+
+#promiseSection.show{
+
+    display:flex;
+
+}
    
 }#finalSection{
 
