@@ -1,3 +1,7 @@
+// ===========================
+// ELEMENTS
+// ===========================
+
 const gift = document.getElementById("gift");
 const button = document.getElementById("openBtn");
 const light = document.getElementById("light");
@@ -6,18 +10,20 @@ const sparkles = document.getElementById("sparkles");
 const music = document.getElementById("bgMusic");
 const letterMusic = document.getElementById("letterMusic");
 
-const welcome = document.getElementById("welcome");
-const continueBtn = document.getElementById("continueBtn");
-
 const hero = document.querySelector(".hero");
+const welcome = document.getElementById("welcome");
 const heroPhoto = document.getElementById("heroPhoto");
-
-const letterBtn = document.getElementById("letterBtn");
 const letterSection = document.getElementById("letterSection");
+const finalSection = document.getElementById("finalSection");
 
-/* ===========================
-   GIFT OPEN
-=========================== */
+const continueBtn = document.getElementById("continueBtn");
+const letterBtn = document.getElementById("letterBtn");
+const finalBtn = document.getElementById("finalBtn");
+const replayBtn = document.getElementById("replayBtn");
+
+// ===========================
+// GIFT OPEN
+// ===========================
 
 button.addEventListener("click", () => {
 
@@ -33,15 +39,16 @@ button.addEventListener("click", () => {
     setTimeout(() => {
 
         hero.style.display = "none";
+
         welcome.classList.add("show");
 
     },2500);
 
 });
 
-/* ===========================
-   SPARKLES
-=========================== */
+// ===========================
+// SPARKLES
+// ===========================
 
 function createSparkles(){
 
@@ -66,9 +73,9 @@ function createSparkles(){
 
 }
 
-/* ===========================
-   CONTINUE
-=========================== */
+// ===========================
+// WELCOME
+// ===========================
 
 continueBtn.addEventListener("click",()=>{
 
@@ -78,9 +85,9 @@ continueBtn.addEventListener("click",()=>{
 
 });
 
-/* ===========================
-   LETTER
-=========================== */
+// ===========================
+// HERO → LETTER
+// ===========================
 
 letterBtn.addEventListener("click",()=>{
 
@@ -90,11 +97,11 @@ letterBtn.addEventListener("click",()=>{
 
     music.pause();
 
-    music.currentTime=0;
+    music.currentTime = 0;
 
     if(letterMusic){
 
-        letterMusic.currentTime=44;
+        letterMusic.currentTime = 44;
 
         letterMusic.play().catch(()=>{});
 
@@ -102,7 +109,7 @@ letterBtn.addEventListener("click",()=>{
 
             letterMusic.pause();
 
-            letterMusic.currentTime=0;
+            letterMusic.currentTime = 0;
 
             music.play().catch(()=>{});
 
@@ -110,15 +117,11 @@ letterBtn.addEventListener("click",()=>{
 
     }
 
-})
-/* ===========================
-   LETTER → FINAL
-=========================== */
+});// ===========================
+// LETTER → FINAL
+// ===========================
 
-const finalBtn = document.getElementById("finalBtn");
-const finalSection = document.getElementById("finalSection");
-
-finalBtn.addEventListener("click", () => {
+finalBtn.addEventListener("click",()=>{
 
     letterSection.classList.remove("show");
 
@@ -127,78 +130,23 @@ finalBtn.addEventListener("click", () => {
     startConfetti();
 
 });
-});const fireflies=document.getElementById("fireflies");
+
+// ===========================
+// FIREFLIES
+// ===========================
+
+const fireflies = document.getElementById("fireflies");
 
 for(let i=0;i<35;i++){
 
-    const f=document.createElement("span");
+    const f = document.createElement("span");
 
-    f.style.left=Math.random()*100+"vw";
+    f.style.left = Math.random()*100+"vw";
 
-    f.style.top=Math.random()*100+"vh";
+    f.style.top = Math.random()*100+"vh";
 
-    f.style.animationDelay=Math.random()*8+"s";
+    f.style.animationDelay = Math.random()*8+"s";
 
     fireflies.appendChild(f);
 
-}const canvas = document.getElementById("confetti");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let confetti = [];
-
-function startConfetti(){
-
-    confetti = [];
-
-    for(let i=0;i<180;i++){
-
-        confetti.push({
-
-            x:Math.random()*canvas.width,
-            y:-20,
-            r:Math.random()*8+4,
-            dx:(Math.random()-0.5)*5,
-            dy:Math.random()*4+3,
-            color:`hsl(${Math.random()*360},100%,60%)`
-
-        });
-
-    }
-
-    animateConfetti();
-
 }
-
-function animateConfetti(){
-
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    confetti.forEach(c=>{
-
-        ctx.beginPath();
-
-        ctx.fillStyle=c.color;
-
-        ctx.arc(c.x,c.y,c.r,0,Math.PI*2);
-
-        ctx.fill();
-
-        c.x+=c.dx;
-        c.y+=c.dy;
-
-    });
-
-    if(confetti.some(c=>c.y<canvas.height+50)){
-
-        requestAnimationFrame(animateConfetti);
-
-    }
-
-}document.getElementById("replayBtn").addEventListener("click",()=>{
-
-    location.reload();
-
-});
