@@ -150,3 +150,82 @@ for(let i=0;i<35;i++){
     fireflies.appendChild(f);
 
 }
+// ===========================
+// CONFETTI
+// ===========================
+
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas(){
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+}
+
+resizeCanvas();
+
+window.addEventListener("resize", resizeCanvas);
+
+let confetti = [];
+
+function startConfetti(){
+
+    confetti = [];
+
+    for(let i=0;i<180;i++){
+
+        confetti.push({
+
+            x:Math.random()*canvas.width,
+            y:-20,
+            r:Math.random()*8+4,
+            dx:(Math.random()-0.5)*5,
+            dy:Math.random()*4+3,
+            color:`hsl(${Math.random()*360},100%,60%)`
+
+        });
+
+    }
+
+    animateConfetti();
+
+}
+
+function animateConfetti(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    confetti.forEach(c=>{
+
+        ctx.beginPath();
+
+        ctx.fillStyle = c.color;
+
+        ctx.arc(c.x,c.y,c.r,0,Math.PI*2);
+
+        ctx.fill();
+
+        c.x += c.dx;
+        c.y += c.dy;
+
+    });
+
+    if(confetti.some(c=>c.y < canvas.height + 50)){
+
+        requestAnimationFrame(animateConfetti);
+
+    }
+
+}
+
+// ===========================
+// REPLAY
+// ===========================
+
+replayBtn.addEventListener("click",()=>{
+
+    location.reload();
+
+});
