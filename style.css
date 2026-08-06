@@ -828,71 +828,13 @@ transform:translateY(0);
     color:#b14f73;
     display:inline-block;
     margin-top:8px;
-}/* ==========================
-   GALLERY
-========================== */
-#gallerySection{
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100vh;
-
-    background: #000;
-
-    display: none;
-    justify-content: center;
-    align-items: center;
-
-    overflow: hidden;
-    z-index: 99999;
 }
-
-#gallerySection.show{
-    display: flex;
-}#gallerySection{
-    background: linear-gradient(
-        180deg,
         #2d1b4d,
         #442c5e,
         #6a3f7d
     );
-}
 
-.gallery-container{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.gallery-photo{
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;   /* पूरा photo दिखाई देगा */
-    opacity: 0;
-
-    transition:
-      opacity 1.2s ease,
-        transform 3.5s linear;
-
-}
-
-.gallery-photo.active{
-    opacity: 1;
-}
-
-.gallery-title{
-    position: absolute;
-    bottom: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    color: white;
-    font-size: clamp(24px,4vw,42px);
-    font-weight: bold;
+   
 }#finalSection{
 
     position:fixed;
