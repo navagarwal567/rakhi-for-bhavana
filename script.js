@@ -124,14 +124,7 @@ galleryBtn.addEventListener("click", () => {
     // Letter hide
     letterSection.classList.remove("show");
 
-    // Gallery show
-    gallerySection.classList.add("show");
-
-    // Reset photos
-    photos.forEach(photo => photo.classList.remove("active"));
-
-    current = 0;
-    photos[current].classList.add("active");
+  
 
     // Old interval stop
     if (slideInterval) {
